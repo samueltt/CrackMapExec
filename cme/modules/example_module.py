@@ -1,0 +1,27 @@
+class CMEModule:
+    '''
+        Example
+        Module by @yomama
+
+    '''
+
+    name = 'example module'
+    description = 'I do something'
+    opsec_safe = True  # Does the module touch disk?
+    multiple_hosts = True  # Does it make sense to run this module on multiple hosts at a time?
+
+    def options(self, context, module_options):
+        '''Required. Module options get parsed here. Additionally, put the modules usage here as well'''
+        pass
+
+    def on_login(self, context, connection):
+        '''Concurrent. Required if on_admin_login is not present. This gets called on each authenticated connection'''
+        pass
+
+    def on_admin_login(self, context, connection):
+        '''Concurrent. Required if on_login is not present. This gets called on each authenticated connection with Administrative privileges'''
+        pass
+
+    def on_shutdown(self, context, connection):
+        '''Optional. Do something on shutdown'''
+        pass
